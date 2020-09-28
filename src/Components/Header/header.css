@@ -1,13 +1,19 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   border: 2px orange solid;
   height: 60px;
 }
 .header__containLogo {
   width: 189px;
   height: 48px;
+  display: flex;
+  align-items: center;
+}
+.header__left {
+  display: flex;
+  align-items: center;
 }
 
 .header__logo {
@@ -21,4 +27,33 @@
   background-color: #f56b2a;
   border-radius: 5px;
   border: none;
+}
+.header__buttonAdd > p {
+  color: white;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+}
+.ellipse {
+  background-color: #f56b2a;
+  height: 90px;
+  border-radius: 0% 0% 60% 60%;
+}
+.contain__header {
+  display: flex;
+  flex-direction: column;
+}
+/* header search zone*/
+.headersearch__contain {
+  position: relative;
+  width: 100%;
+  border: 2px solid red;
+}
+.headersearch {
+  width: 810px;
+  height: 130px;
+  border: 2px solid black;
+  margin: auto;
+  position: absolute;
+  top: 30px;
 }
