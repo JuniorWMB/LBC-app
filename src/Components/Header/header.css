@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border: 2px orange solid;
   height: 60px;
 }
 .header__containLogo {
@@ -45,15 +44,54 @@
 }
 /* header search zone*/
 .headersearch__contain {
-  position: relative;
   width: 100%;
-  border: 2px solid red;
+  height: 200px;
 }
 .headersearch {
   width: 810px;
   height: 130px;
-  border: 2px solid black;
-  margin: auto;
+  /* margin: auto; */
   position: absolute;
-  top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 20%;
+  top: 100px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+.header__inputandbutton {
+  display: flex;
+  justify-content: space-evenly;
+}
+.header__input {
+  width: 320px;
+  height: 44px;
+  background: rgba(244, 246, 247, 1);
+  border: none;
+}
+.header__price {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.header__priceleft {
+  display: flex;
+  align-items: center;
+}
+.header__button {
+  width: 220px;
+  height: 44px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgba(65, 131, 215, 1);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+.header__pricevalue {
+  width: 79px;
+  height: 32px;
+  background: rgba(244, 246, 247, 1);
+  margin: 0 10px;
+  border: none;
 }
