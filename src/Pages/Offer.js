@@ -28,6 +28,8 @@ function Offer() {
           title={data.title}
           created={data.created}
           price={data.price}
+          description={data.description}
+          username={data.creator.account.username}
         />
       )}
     </div>
