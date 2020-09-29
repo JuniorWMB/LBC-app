@@ -7,7 +7,6 @@ import OffersMulti from "../Components/OffersMulti/OffersMulti";
 const Offers = ({ data, loading }) => {
   return (
     <div>
-      <Header />
       <HeaderSearch />
       <OffersMulti data={data} loading={loading} />
     </div>
