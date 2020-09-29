@@ -28,11 +28,11 @@ function OffersMulti() {
           {data.offers.map((offer) => {
             return (
               <Link
+                key={offer._id}
                 to={"/offer/" + offer._id}
                 className="offers__multi"
-                key={offer._id}
               >
-                <img src={offer.picture.url} alt={offer.title} />
+                <img src={offer.picture.secure_url} alt={offer.title} />
                 <div className="offers__text">
                   <p className="offers__title">{offer.title}</p>
                   <p className="offers__price">{offer.price} €</p>
