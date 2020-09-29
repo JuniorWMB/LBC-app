@@ -1,4 +1,5 @@
 import React from "react";
+import { ShoppingCart } from "react-feather";
 import "./offerContain.css";
 
 function OfferContain({
@@ -30,9 +31,14 @@ function OfferContain({
         </div>
       </div>
       <div className="offer__basket">
-        <div className="offer__user">{username}</div>
+        <div className="offer__user">
+          <p>{username}</p>
+        </div>
         <div className="offer__paybasket">
-          <button>Acheter</button>
+          <button>
+            <ShoppingCart size={20} />
+            <p className="offer__textBasket">Acheter</p>
+          </button>
         </div>
       </div>
     </div>
