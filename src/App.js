@@ -6,7 +6,7 @@ import "./App.css";
 
 function App() {
   const [data, setData] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,10 +14,9 @@ function App() {
         "https://leboncoin-api.herokuapp.com/offer/with-count"
       );
       setData(response.data);
-      setLoading(true);
+      setLoading(false);
     };
     fetchData();
-    setLoading(true);
   }, []);
   // console.log("good", data.offers);
 
@@ -26,7 +25,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/">
-            <Offers data={data.offers} />
+            <Offers data={data.offers} loading={loading} />
           </Route>
         </Switch>
       </Router>

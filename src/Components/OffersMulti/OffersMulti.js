@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
-const OffersMulti = ({ data }) => {
+function OffersMulti({ data, loading }) {
   console.log("fuck>>>>", data);
 
   return (
     <div>
-      <h1>ok</h1>
+      {loading === true ? (
+        <span>Waiting please</span>
+      ) : (
+        <div>
+          {data.offers.map((offer, i) => {
+            return <div>{offer.title}</div>;
+          })}
+        </div>
+      )}
     </div>
   );
-};
+}
 
 export default OffersMulti;

@@ -4,12 +4,12 @@ import Header from "../Components/Header/Header";
 import HeaderSearch from "../Components/HeaderSearch";
 import OffersMulti from "../Components/OffersMulti/OffersMulti";
 
-const Offers = ({ data }) => {
+const Offers = ({ data, loading }) => {
   return (
     <div>
       <Header />
       <HeaderSearch />
-      <OffersMulti data={data} />
+      <OffersMulti data={data} loading={loading} />
     </div>
   );
 };
