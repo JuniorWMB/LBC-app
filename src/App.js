@@ -3,8 +3,10 @@ import axios from "axios";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Offers from "./Pages/Offers";
 import Offer from "./Pages/Offer";
+import SignUp from "./Pages/SignUp";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
+
 import "./App.css";
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
             <Offers />
           </Route>
           <Route path="/offer/:id" component={Offer} />
+          <Route path="/signup" component={SignUp} />
         </Switch>
         <Footer />
       </Router>

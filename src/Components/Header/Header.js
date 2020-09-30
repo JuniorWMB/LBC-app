@@ -43,7 +43,7 @@ const Header = () => {
           }}
         >
           <User />
-          <h5>Se connecter</h5>
+          <Link to="/signup">Se connecter</Link>
         </div>
       </div>
     </div>
