@@ -1,4 +1,5 @@
 import React from "react";
+import { Bell, Clock, Eye } from "react-feather";
 import "./signupform.css";
 
 function SignUpForm() {
@@ -6,34 +7,49 @@ function SignUpForm() {
     <div className="signup__containermaster">
       <div className="signup__container">
         <div className="signup__left">
-          <p>Pourquoi créer un compte ?</p>
+          <p className="signup__leftwhycompte">Pourquoi créer un compte ?</p>
           <div className="signup__text">
-            <div>
-              <p>Gagne du temps</p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed
-                inventore enim maxime quos veniam? Illo{" "}
-              </p>
+            <div className="signup__textone">
+              <div>
+                <Clock />
+              </div>
+              <div>
+                <p>Gagne du temps</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed
+                  inventore enim maxime quos veniam?
+                </p>
+              </div>
             </div>
-            <div>
-              <p>Soyez les premiers informés</p>
-              <p>
-                repellendus, neque perferendis architecto doloremque magni.
-                Dignissimos nemo accusantium incidunt architecto placeat ipsum
-                distinctio maxime?
-              </p>
+            <div className="signup__textone">
+              <div>
+                <Bell />
+              </div>
+              <div>
+                <p>Soyez les premiers informés</p>
+                <p>
+                  repellendus, neque perferendis architecto doloremque magni.
+                  Dignissimos nemo accusantium incidunt architecto placeat ipsum
+                  distinctio maxime?
+                </p>
+              </div>
             </div>
-            <div>
-              <p>Visibilité</p>
-              <p>
-                magni. Dignissimos nemo accusantium incidunt architecto placeat
-                ipsum distinctio maxime?
-              </p>
+            <div className="signup__textone">
+              <div>
+                <Eye />
+              </div>
+              <div>
+                <p>Visibilité</p>
+                <p>
+                  magni. Dignissimos nemo accusantium incidunt architecto
+                  placeat ipsum distinctio maxime?
+                </p>
+              </div>
             </div>
           </div>
         </div>
-        <div lassName="signup__right">
-          <div c>
+        <div className="signup__right">
+          <div className="signup__compte">
             <p>Créez un compte</p>
           </div>
           <div>
