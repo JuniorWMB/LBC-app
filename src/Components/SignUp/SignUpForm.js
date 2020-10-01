@@ -112,7 +112,7 @@ function SignUpForm() {
               <p className="signup__formlabel">Adresse email*</p>
               <input
                 className="signup__inputtext"
-                type="text"
+                type="email"
                 value={email}
                 onChange={handleEmailChange}
               />
@@ -122,6 +122,7 @@ function SignUpForm() {
                 <p className="signup__formlabel">Mot de passe*</p>
                 <input
                   className="signup__inputmdp"
+                  type="password"
                   value={password}
                   onChange={handlePasswordChange}
                 />
@@ -131,13 +132,14 @@ function SignUpForm() {
                   <p className="signup__formlabel">Confirme le mot de passe*</p>
                   <input
                     className="signup__inputmdp"
+                    type="password"
                     value={confirmPassword}
                     onChange={handleConfirmPasswordChange}
                   />
                 </div>
               </div>
             </div>
-            <setErrorPassword />
+            {errorPassword && <p className="error">{errorPassword} </p>}
             <div className="signup__checkbox">
               <input
                 type="checkbox"

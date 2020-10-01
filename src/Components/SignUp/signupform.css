@@ -94,3 +94,12 @@
 .signup__textloi {
   display: flex;
 }
+.errorInput {
+  border: 1px solid red !important;
+}
+.error {
+  color: red;
+  font-size: 0.675rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
