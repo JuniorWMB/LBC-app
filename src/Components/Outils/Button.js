@@ -12,6 +12,7 @@ function Button() {
           border: "none",
           color: "white",
         }}
+        type="submit"
       >
         Créer mon Compte Personnel
       </button>
