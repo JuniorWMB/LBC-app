@@ -2,21 +2,24 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./offersMulti.css";
+import Pagination from "../Pagination/Pagination";
 
 function OffersMulti() {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const limit = 5;
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        "https://leboncoin-api.herokuapp.com/offer/with-count"
+        `https://leboncoin-api.herokuapp.com/offer/with-count?page=${page}&limit=${limit}`
       );
       setData(response.data);
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [page]);
   console.log("good", data.offers);
 
   return (
@@ -45,6 +48,7 @@ function OffersMulti() {
           })}
         </div>
       )}
+      <Pagination count={data.count} limit={limit} setPage={setPage} />
     </div>
   );
 }
