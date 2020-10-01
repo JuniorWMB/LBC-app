@@ -10,11 +10,11 @@ function SignUpForm() {
           <p className="signup__leftwhycompte">Pourquoi créer un compte ?</p>
           <div className="signup__text">
             <div className="signup__textone">
-              <div>
-                <Clock />
+              <div className="signup__icon">
+                <Clock size={40} />
               </div>
               <div>
-                <p>Gagne du temps</p>
+                <p className="signup__title">Gagne du temps</p>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed
                   inventore enim maxime quos veniam?
@@ -22,11 +22,11 @@ function SignUpForm() {
               </div>
             </div>
             <div className="signup__textone">
-              <div>
-                <Bell />
+              <div className="signup__icon">
+                <Bell size={40} />
               </div>
               <div>
-                <p>Soyez les premiers informés</p>
+                <p className="signup__title">Soyez les premiers informés</p>
                 <p>
                   repellendus, neque perferendis architecto doloremque magni.
                   Dignissimos nemo accusantium incidunt architecto placeat ipsum
@@ -35,11 +35,11 @@ function SignUpForm() {
               </div>
             </div>
             <div className="signup__textone">
-              <div>
-                <Eye />
+              <div className="signup__icon">
+                <Eye size={40} />
               </div>
               <div>
-                <p>Visibilité</p>
+                <p className="signup__title">Visibilité</p>
                 <p>
                   magni. Dignissimos nemo accusantium incidunt architecto
                   placeat ipsum distinctio maxime?

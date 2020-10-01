@@ -27,6 +27,17 @@
 .signup__textone {
   display: flex;
 }
+.signup__icon {
+  margin-right: 30px;
+  color: #4183d7;
+}
+.signup__title {
+  font-weight: 700;
+  font-style: normal;
+  font-size: 14px;
+  color: black;
+  margin-bottom: 20px;
+}
 
 /* signup Right*/
 .signup__right {
