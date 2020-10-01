@@ -1,5 +1,6 @@
 import React from "react";
 import { Bell, Clock, Eye } from "react-feather";
+import Button from "../Outils/Button";
 import "./signupform.css";
 
 function SignUpForm() {
@@ -52,36 +53,48 @@ function SignUpForm() {
           <div className="signup__compte">
             <p>Créez un compte</p>
           </div>
-          <div>
-            <p>Pseudo*</p>
-            <input type="text" />
-          </div>
-          <div>
-            <p>Adresse email*</p>
-            <input type="text" />
-          </div>
-          <div>
+          <form className="signup__form">
             <div>
-              <p>Mot de passe*</p>
-              <input />
+              <p className="signup__formlabel">Pseudo*</p>
+
+              <input className="signup__inputtext" type="text" />
             </div>
             <div>
+              <p className="signup__formlabel">Adresse email*</p>
+              <input className="signup__inputtext" type="text" />
+            </div>
+            <div className="signup__formmdp">
               <div>
-                <p>Confirme le mot de passe*</p>
-                <input />
+                <p className="signup__formlabel">Mot de passe*</p>
+                <input className="signup__inputmdp" />
+              </div>
+              <div>
+                <div>
+                  <p className="signup__formlabel">Confirme le mot de passe*</p>
+                  <input className="signup__inputmdp" />
+                </div>
               </div>
             </div>
-          </div>
-          <div>
-            <input type="checkbox" name="" id="" />
-            <p>
-              J'accepte les condition de vente et les condition Générales
-              d'utilisation
-            </p>
-          </div>
-          <div>
-            <button>Créer mon Compte Personnel</button>
-          </div>
+            <div className="signup__checkbox">
+              <input type="checkbox" name="" id="" />
+              <div className="signup__textloi">
+                <p style={{ marginLeft: "10px" }}>
+                  J'accepte les
+                  <p className="signup__colorbluetext">
+                    {" "}
+                    condition de vente
+                  </p>{" "}
+                  et
+                  <p className="signup__colorbluetext">
+                    les condition Générales d'utilisation
+                  </p>
+                </p>
+              </div>
+            </div>
+            <div>
+              <Button />
+            </div>
+          </form>
         </div>
       </div>
     </div>
