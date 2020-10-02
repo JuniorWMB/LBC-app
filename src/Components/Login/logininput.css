@@ -98,3 +98,9 @@
   color: black;
   margin: 20px 0;
 }
+.error {
+  color: red;
+  font-size: 0.675rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}

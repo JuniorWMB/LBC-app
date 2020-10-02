@@ -5,7 +5,7 @@ import axios from "axios";
 import "./signupform.css";
 import { useHistory } from "react-router-dom";
 
-function SignUpForm() {
+function SignUpForm({ onLogin }) {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -39,12 +39,18 @@ function SignUpForm() {
       if (check !== true) {
         setErrorCheck(" ");
       } else {
-        await axios.post(` https://leboncoin-api.herokuapp.com/user/sign_up`, {
-          username: username,
-          email: email,
-          password: password,
-        });
-        history.push("/login");
+        const response = await axios.post(
+          ` https://leboncoin-api.herokuapp.com/user/sign_up`,
+          {
+            username: username,
+            email: email,
+            password: password,
+          }
+        );
+        if (response.data.token) {
+          onLogin(response.data.token);
+          history.push("/");
+        }
       }
     }
   };

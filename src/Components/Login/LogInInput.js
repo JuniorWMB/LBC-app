@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Cookies from "js-cookie";
+import { Link, useHistory } from "react-router-dom";
+// import Cookies from "js-cookie";
 import axios from "axios";
 import "./logininput.css";
 
-function LogInInput() {
+function LogInInput({ onLogin }) {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -17,15 +18,37 @@ function LogInInput() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const response = await axios.post(
-      `https://leboncoin-api.herokuapp.com/user/log_in`,
-      {
-        email,
-        password,
+    // e.preventDefault();
+    // if (email && password) {
+    //   const response = await axios.post(
+    //     `https://leboncoin-api.herokuapp.com/user/log_in`,
+    //     {
+    //       email,
+    //       password,
+    //     }
+    //   );
+    //   Cookies.set("token", response.data.token, { expires: 7 });
+    //   onLogin(response.data.token);
+    // } else {
+    //   setError("Veuiller remplir l'email et le password");
+    // }
+    // console.log("test submit");
+    try {
+      e.preventDefault();
+      const response = await axios.post(
+        "https://leboncoin-api.herokuapp.com/user/log_in",
+        {
+          email: email,
+          password: password,
+        }
+      );
+      if (response.data.token) {
+        onLogin(response.data.token);
+        history.pushState("/");
       }
-    );
-    Cookies.set("token", response.data.token, { expires: 7 });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -53,6 +76,7 @@ function LogInInput() {
               onChange={handlePasswordChange}
             />
           </div>
+          {error && <p>{error}</p>}
           <button className="login__button" type="submit">
             Se connecter
           </button>
