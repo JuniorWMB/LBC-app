@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
 }
-body {
+body html {
   width: 1440px;
   height: 1029px;
   background: #ffffff;

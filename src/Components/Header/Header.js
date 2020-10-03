@@ -5,7 +5,7 @@ import logo from "../../assests/logo.png";
 import Cookies from "js-cookie";
 
 import { Link, useHistory } from "react-router-dom";
-const Header = ({ username }) => {
+const Header = ({ username, setUsername }) => {
   const history = useHistory();
 
   return (
@@ -65,6 +65,7 @@ const Header = ({ username }) => {
                 onClick={() => {
                   Cookies.remove("username");
                   Cookies.remove("token");
+                  setUsername(null);
                   history.push = "/";
                 }}
               >

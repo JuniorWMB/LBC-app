@@ -12,7 +12,7 @@ import Cookies from "js-cookie";
 import "./App.css";
 
 function App() {
-  const [username, setUsername] = useState(Cookies.get("username") || "");
+  const [username, setUsername] = useState(Cookies.get("username") || null);
 
   const onLog = (token, username) => {
     setUsername(username);
@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header username={username} />
+        <Header username={username} setUsername={setUsername} />
         <Switch>
           <Route exact path="/">
             <Offers />
