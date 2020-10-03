@@ -1,9 +1,13 @@
 import React from "react";
-import { PlusSquare, User, Search } from "react-feather";
+import { PlusSquare, User, Search, LogOut } from "react-feather";
 import "./header.css";
 import logo from "../../assests/logo.png";
-import { Link } from "react-router-dom";
-const Header = () => {
+import Cookies from "js-cookie";
+
+import { Link, useHistory } from "react-router-dom";
+const Header = ({ username }) => {
+  const history = useHistory();
+
   return (
     <div className="contain__header">
       <div className="header">
@@ -42,8 +46,32 @@ const Header = () => {
             alignItems: "center",
           }}
         >
-          <User />
-          <Link to="/login">Se connecter</Link>
+          {username === null ? (
+            <div>
+              <User />
+
+              <Link to="/login">Se connecter</Link>
+            </div>
+          ) : (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                width: "150px",
+              }}
+            >
+              <p>Bienvenue {username}</p>
+              <button
+                onClick={() => {
+                  Cookies.remove("username");
+                  Cookies.remove("token");
+                  history.push = "/";
+                }}
+              >
+                <LogOut />
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

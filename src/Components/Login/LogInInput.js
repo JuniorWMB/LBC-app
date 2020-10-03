@@ -44,7 +44,7 @@ function LogInInput({ onLog }) {
       );
       if (response.data.token) {
         onLog(response.data.token, response.data.account.username);
-        history.pushState("/");
+        history.push("/");
       }
     } catch (error) {
       console.log(error.message);

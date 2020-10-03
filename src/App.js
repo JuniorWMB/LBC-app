@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Offers from "./Pages/Offers";
 import Offer from "./Pages/Offer";
@@ -12,12 +12,10 @@ import Cookies from "js-cookie";
 import "./App.css";
 
 function App() {
-  // const [token, setToken] = useState(Cookies.get("token") || null);
-  // const onLogin = (token) => {
-  //   setToken(token);
-  //   Cookies.set("token", token);
-  // };
+  const [username, setUsername] = useState(Cookies.get("username") || "");
+
   const onLog = (token, username) => {
+    setUsername(username);
     Cookies.set("token", token);
     Cookies.set("username", username);
   };
@@ -27,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
+        <Header username={username} />
         <Switch>
           <Route exact path="/">
             <Offers />
