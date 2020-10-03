@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-// import Cookies from "js-cookie";
+import Cookies from "js-cookie";
 import axios from "axios";
 import "./logininput.css";
 
-function LogInInput({ onLogin }) {
+function LogInInput({ onLog }) {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,7 +43,7 @@ function LogInInput({ onLogin }) {
         }
       );
       if (response.data.token) {
-        onLogin(response.data.token);
+        onLog(response.data.token, response.data.account.username);
         history.pushState("/");
       }
     } catch (error) {

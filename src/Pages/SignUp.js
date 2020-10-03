@@ -1,10 +1,10 @@
 import React from "react";
 import SignUpForm from "../Components/SignUp/SignUpForm";
 
-function SignUp() {
+function SignUp({ onLog }) {
   return (
     <div>
-      <SignUpForm />
+      <SignUpForm onLog={onLog} />
     </div>
   );
 }

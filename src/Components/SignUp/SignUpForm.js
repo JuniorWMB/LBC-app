@@ -5,7 +5,7 @@ import axios from "axios";
 import "./signupform.css";
 import { useHistory } from "react-router-dom";
 
-function SignUpForm({ onLogin }) {
+function SignUpForm({ onLog }) {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -48,9 +48,11 @@ function SignUpForm({ onLogin }) {
           }
         );
         if (response.data.token) {
-          onLogin(response.data.token);
+          onLog(response.data.token, response.data.account.username);
+          // Cookies.set("token", response.data.token);
           history.push("/");
         }
+        console.log("test response", response);
       }
     }
   };

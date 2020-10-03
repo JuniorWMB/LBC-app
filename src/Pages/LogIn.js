@@ -1,10 +1,10 @@
 import React from "react";
 import LogInInput from "../Components/Login/LogInInput";
 
-function LogIn() {
+function LogIn({ onLog }) {
   return (
     <div>
-      <LogInInput />
+      <LogInInput onLog={onLog} />
     </div>
   );
 }

@@ -12,13 +12,17 @@ import Cookies from "js-cookie";
 import "./App.css";
 
 function App() {
-  const [token, setToken] = useState(Cookies.get("token") || null);
-  const onLogin = (token) => {
-    setToken(token);
+  // const [token, setToken] = useState(Cookies.get("token") || null);
+  // const onLogin = (token) => {
+  //   setToken(token);
+  //   Cookies.set("token", token);
+  // };
+  const onLog = (token, username) => {
     Cookies.set("token", token);
+    Cookies.set("username", username);
   };
 
-  console.log("humm cookies >>>", token);
+  console.log("humm cookies >>>", onLog);
 
   return (
     <div className="App">
@@ -29,9 +33,11 @@ function App() {
             <Offers />
           </Route>
           <Route path="/offer/:id" component={Offer} />
-          <Route path="/signup" component={SignUp} />
+          <Route path="/signup">
+            <SignUp onLog={onLog} />
+          </Route>
           <Route path="/login">
-            <LogIn onLogin={onLogin} />
+            <LogIn onLog={onLog} />
           </Route>
         </Switch>
         <Footer />
