@@ -18,21 +18,6 @@ function LogInInput({ onLog }) {
   };
 
   const handleSubmit = async (e) => {
-    // e.preventDefault();
-    // if (email && password) {
-    //   const response = await axios.post(
-    //     `https://leboncoin-api.herokuapp.com/user/log_in`,
-    //     {
-    //       email,
-    //       password,
-    //     }
-    //   );
-    //   Cookies.set("token", response.data.token, { expires: 7 });
-    //   onLogin(response.data.token);
-    // } else {
-    //   setError("Veuiller remplir l'email et le password");
-    // }
-    // console.log("test submit");
     try {
       e.preventDefault();
       const response = await axios.post(

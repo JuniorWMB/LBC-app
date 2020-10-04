@@ -51,7 +51,8 @@ function Publish() {
             },
           }
         );
-        history.push(`/offer/${response.data._id}`);
+        console.log("button ok", response.data);
+        history.push(`/offer/` + response.data._id);
       } catch (error) {
         if (error.response.status === 500) {
           console.error("An error occured");
