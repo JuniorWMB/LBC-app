@@ -17,7 +17,8 @@ const Header = ({ username, setUsername }) => {
               <img className="header__logo" src={logo} alt="logo lbc" />
             </div>
           </Link>
-          <button
+          <Link
+            to="/publish"
             className="header__buttonAdd"
             style={{
               display: "flex",
@@ -27,7 +28,7 @@ const Header = ({ username, setUsername }) => {
           >
             <PlusSquare color="white" />
             <p style={{ marginLeft: "10px" }}>Déposer une annonce</p>
-          </button>
+          </Link>
           <div style={{ display: "flex", margin: "20px" }}>
             <Search />
             <input

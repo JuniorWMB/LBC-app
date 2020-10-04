@@ -8,6 +8,7 @@ import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import LogIn from "./Pages/LogIn";
 import Cookies from "js-cookie";
+import Publish from "./Pages/Publish";
 
 import "./App.css";
 
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route path="/login">
             <LogIn onLog={onLog} />
+          </Route>
+          <Route path="/publish">
+            <Publish />
           </Route>
         </Switch>
         <Footer />
