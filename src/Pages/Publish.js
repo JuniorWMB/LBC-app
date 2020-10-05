@@ -5,11 +5,14 @@ import "./publish.css";
 import axios from "axios";
 
 function Publish() {
+  const userToken = Cookies.get("token");
+  console.log("Token>>>", userToken);
+
   const [title, setTitle] = useState("Titre");
   const [text, setText] = useState("Texte de l'annonce");
   const [price, setPrice] = useState(0);
   const [file, setFile] = useState();
-  const userToken = Cookies.get("token");
+
   const history = useHistory();
 
   const handleTtileChange = (e) => {
@@ -28,38 +31,28 @@ function Publish() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!userToken) {
-      setTimeout(() => {
-        alert(
-          "Vous devez etre connecté pour déposer une annonce, vous allez etre dirigé vers la page login ..."
-        );
-        history.push("/login");
-      }, 2000);
+      alert(
+        "Vous devez etre connecté pour déposer une annonce, vous allez etre dirigé vers la page login ..."
+      );
+      history.push("/login");
     } else {
       const formData = new FormData();
-      formData.append("file", file);
       formData.append("title", title);
-      formData.append("text", text);
+      formData.append("description", text);
       formData.append("price", price);
-      try {
-        const response = await axios.post(
-          "https://leboncoin-api.herokuapp.com/offer/publish/",
-          formData,
-          {
-            headers: {
-              Authorization: "Beare" + userToken,
-              "Content-Type": "multipart/form-data",
-            },
-          }
-        );
-        console.log("button ok", response.data);
-        history.push(`/offer/` + response.data._id);
-      } catch (error) {
-        if (error.response.status === 500) {
-          console.error("An error occured");
-        } else {
-          console.error(error.response.data.msg);
+      formData.append("file", file);
+
+      const response = await axios.post(
+        "https://leboncoin-api.herokuapp.com/offer/publish",
+        formData,
+        {
+          headers: {
+            Authorization: "Bearer" + userToken,
+          },
         }
-      }
+      );
+      history.push(`/`);
+      console.log("button ok", response.data);
     }
   };
   console.log("title is here>>", title);
