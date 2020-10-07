@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
 import "./publish.css";
 import axios from "axios";
 
 function Publish() {
-  const userToken = Cookies.get("token");
-  console.log("Token>>>", userToken);
-
   const [title, setTitle] = useState("Titre");
   const [text, setText] = useState("Texte de l'annonce");
   const [price, setPrice] = useState(0);
   const [file, setFile] = useState();
 
   const history = useHistory();
+  const token = Cookies.get("token");
+  console.log("Token>>>", token);
 
   const handleTtileChange = (e) => {
     setTitle(e.target.value);
@@ -30,37 +29,62 @@ function Publish() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!userToken) {
-      alert(
-        "Vous devez etre connecté pour déposer une annonce, vous allez etre dirigé vers la page login ..."
-      );
-      history.push("/login");
-    } else {
-      const formData = new FormData();
-      formData.append("title", title);
-      formData.append("description", text);
-      formData.append("price", price);
-      formData.append("file", file);
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("description", text);
+    formData.append("price", price);
+    formData.append("file", file);
 
+    try {
       const response = await axios.post(
         "https://leboncoin-api.herokuapp.com/offer/publish",
         formData,
         {
           headers: {
-            Authorization: "Bearer" + userToken,
+            Authorization: "Bearer" + token,
+            "Content-Type": "multipart/form-data",
           },
         }
       );
-      history.push(`/`);
-      console.log("button ok", response.data);
+      console.log("data>>>", response.data);
+      history.push("/offer/" + response.data_id);
+    } catch (e) {
+      console.log("error request", e.message);
     }
+
+    // if (!token) {
+    //   alert(
+    //     "Vous devez etre connecté pour déposer une annonce, vous allez etre dirigé vers la page login ..."
+    //   );
+    //   history.push("/login");
+    // } else {
+    //   const formData = new FormData();
+    //   formData.append("title", title);
+    //   formData.append("description", text);
+    //   formData.append("price", price);
+    //   formData.append("file", file);
+
+    //   const response = await axios.post(
+    //     "https://leboncoin-api.herokuapp.com/offer/publish",
+    //     formData,
+    //     {
+    //       headers: {
+    //         Authorization: "Bearer" + token,
+    //         "Content-Type": "multipart/form-data",
+    //       },
+    //     }
+    //   );
+    //   console.log("publish ok", response.data);
+
+    //   history.push(`/`);
+    // }
   };
   console.log("title is here>>", title);
   console.log("text is here>>", text);
   console.log("price is here>>", price);
   console.log("price is here>>", file);
 
-  return (
+  return token ? (
     <div className="container__publish">
       <div className="publish__block">
         <div className="publish__title">
@@ -115,6 +139,8 @@ function Publish() {
         </form>
       </div>
     </div>
+  ) : (
+    <Redirect to="/login" />
   );
 }
 
