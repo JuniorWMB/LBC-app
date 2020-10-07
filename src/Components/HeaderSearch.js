@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const HeaderSearch = ({ setData, title, setTitle }) => {
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(0);
+const HeaderSearch = ({
+  setData,
+  title,
+  setTitle,
+  setMaxPrice,
+  setMinPrice,
+  maxPrice,
+  minPrice,
+}) => {
   const [select, setSelect] = useState({ value: "date-asc" });
 
   const handleTitleChange = (e) => {
@@ -13,7 +19,7 @@ const HeaderSearch = ({ setData, title, setTitle }) => {
 
   const handleMinPriceChange = (e) => {
     setMinPrice(e.target.value);
-    console.log("wtf>>>", minPrice);
+    // console.log("wtf>>>", minPrice);
   };
 
   const handleMaxPriceChange = (e) => {

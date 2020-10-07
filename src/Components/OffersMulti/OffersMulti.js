@@ -10,6 +10,9 @@ function OffersMulti() {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [title, setTitle] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
+  const [minPrice, setMinPrice] = useState("");
+
   const limit = 5;
 
   useEffect(() => {
@@ -30,7 +33,15 @@ function OffersMulti() {
         <span>Waiting please</span>
       ) : (
         <div className="offers">
-          <HeaderSearch setData={setData} title={title} setTitle={setTitle} />
+          <HeaderSearch
+            setData={setData}
+            title={title}
+            setTitle={setTitle}
+            setMaxPrice={setMaxPrice}
+            maxPrice={maxPrice}
+            minPrice={minPrice}
+            setMinPrice={setMinPrice}
+          />
           {data.offers.map((offer) => {
             return (
               <Link
