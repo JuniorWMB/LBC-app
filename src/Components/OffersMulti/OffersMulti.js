@@ -30,7 +30,7 @@ function OffersMulti() {
         <span>Waiting please</span>
       ) : (
         <div className="offers">
-          <HeaderSearch setData={setData} title={title} setTilte={setTitle} />
+          <HeaderSearch setData={setData} title={title} setTitle={setTitle} />
           {data.offers.map((offer) => {
             return (
               <Link

@@ -8,10 +8,12 @@ const HeaderSearch = ({ setData, title, setTitle }) => {
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
+    console.log("look please>>>", title);
   };
 
   const handleMinPriceChange = (e) => {
     setMinPrice(e.target.value);
+    console.log("wtf>>>", minPrice);
   };
 
   const handleMaxPriceChange = (e) => {
@@ -69,14 +71,14 @@ const HeaderSearch = ({ setData, title, setTitle }) => {
           <div className="header__priceleft">
             <p>Prix entre</p>
             <input
-              type="text"
+              type="number"
               placeholder="prix min"
               className="header__pricevalue"
               onChange={handleMinPriceChange}
             />
             <p>et</p>
             <input
-              type="text"
+              type="number"
               placeholder="prix max"
               className="header__pricevalue"
               onChange={handleMaxPriceChange}
