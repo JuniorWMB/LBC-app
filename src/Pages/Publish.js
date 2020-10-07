@@ -40,12 +40,19 @@ function Publish() {
         "https://leboncoin-api.herokuapp.com/offer/publish",
         formData,
         {
+          // headers: {
+          //   Authorization: "Bearer" + token,
+          //   "Content-Type": "multipart/form-data",
+          // },
           headers: {
-            Authorization: "Bearer" + token,
-            "Content-Type": "multipart/form-data",
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: "Bearer " + token,
           },
         }
       );
+      console.log("user", response);
+
       console.log("data>>>", response.data);
       history.push("/offer/" + response.data_id);
     } catch (e) {

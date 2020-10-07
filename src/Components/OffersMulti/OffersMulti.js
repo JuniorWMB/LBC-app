@@ -3,17 +3,19 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./offersMulti.css";
 import Pagination from "../Pagination/Pagination";
+import HeaderSearch from "../HeaderSearch";
 
 function OffersMulti() {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const [title, setTitle] = useState("");
   const limit = 5;
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://leboncoin-api.herokuapp.com/offer/with-count?page=${page}&limit=${limit}`
+        `https://leboncoin-api.herokuapp.com/offer/with-count?page=${page}&limit=${limit}&title=${title}`
       );
       setData(response.data);
       setLoading(false);
@@ -28,6 +30,7 @@ function OffersMulti() {
         <span>Waiting please</span>
       ) : (
         <div className="offers">
+          <HeaderSearch setData={setData} title={title} setTilte={setTitle} />
           {data.offers.map((offer) => {
             return (
               <Link
